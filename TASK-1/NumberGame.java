@@ -45,7 +45,7 @@ public class NumberGame {
                     System.out.println("===============================================");
 
                     // Higher score for fewer attempts
-                    score += MAX_ATTEMPTS - attempts + 1;
+                    score += MAX_ATTEMPTS - attempts - 1;
                     guessedCorrectly = true;
                 } else if (userGuess < randomNumber) {
                     System.out.println("Too low! Try again.\n");
@@ -64,14 +64,14 @@ public class NumberGame {
             System.out.println("             Your score: " + score);
             System.out.println("-----------------------------------------------");
 
-            System.out.print("\nDo you want to play again? (yes/no): ");
+            System.out.print("\nDo you want to play again [Y/N]?: ");
             String response = scanner.next();
 
-            playAgain = response.equalsIgnoreCase("yes");
+            playAgain = response.equalsIgnoreCase("Y");
         }
 
         System.out.println("\n===============================================");
-        System.out.println("         Thank you for playing! Your final score is " + score + ".         ");
+        System.out.println("Thank you for playing! Your final score is " + score + ".         ");
         System.out.println("===============================================");
         scanner.close();
     }
