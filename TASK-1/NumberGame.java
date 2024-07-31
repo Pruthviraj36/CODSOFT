@@ -32,7 +32,7 @@ public class NumberGame {
             System.out.println("\n-----------------------------------------------------------------");
             System.out.println("    Guess a number between " + RANGE_MIN + " and " + RANGE_MAX + ".");
             System.out.println("    You have " + MAX_ATTEMPTS + " attempts to guess the correct number.");
-            System.out.println("-------------------------------------------------------------------");
+            System.out.println("-----------------------------------------------------------------");
 
             while (attempts < MAX_ATTEMPTS && !guessedCorrectly) {
                 System.out.print("Enter your guess: ");
@@ -45,7 +45,7 @@ public class NumberGame {
                     System.out.println("===============================================");
 
                     // Higher score for fewer attempts
-                    score += MAX_ATTEMPTS - attempts - 1;
+                    score += MAX_ATTEMPTS - attempts;
                     guessedCorrectly = true;
                 } else if (userGuess < randomNumber) {
                     System.out.println("Too low! Try again.\n");
@@ -71,7 +71,7 @@ public class NumberGame {
         }
 
         System.out.println("\n===============================================");
-        System.out.println("Thank you for playing! Your final score is " + score + ".         ");
+        System.out.println("      Thank you for playing! Your final score is " + score + ".         ");
         System.out.println("===============================================");
         scanner.close();
     }
