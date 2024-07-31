@@ -18,15 +18,21 @@ public class NumberGame {
         int score = 0;
         boolean playAgain = true;
 
-        System.out.println("Welcome to the Number Guessing Game!");
+        // Welcome message
+        System.out.println("===============================================");
+        System.out.println("      Welcome to the Number Guessing Game!         ");
+        System.out.println("===============================================");
 
         while (playAgain) {
             int randomNumber = random.nextInt(RANGE_MAX - RANGE_MIN + 1) + RANGE_MIN;
             int attempts = 0;
             boolean guessedCorrectly = false;
 
-            System.out.println("\nGuess a number between " + RANGE_MIN + " and " + RANGE_MAX + ".");
-            System.out.println("You have " + MAX_ATTEMPTS + " attempts to guess the correct number.");
+            // Game instructions
+            System.out.println("\n-----------------------------------------------------------------");
+            System.out.println("    Guess a number between " + RANGE_MIN + " and " + RANGE_MAX + ".");
+            System.out.println("    You have " + MAX_ATTEMPTS + " attempts to guess the correct number.");
+            System.out.println("-------------------------------------------------------------------");
 
             while (attempts < MAX_ATTEMPTS && !guessedCorrectly) {
                 System.out.print("Enter your guess: ");
@@ -34,24 +40,29 @@ public class NumberGame {
                 attempts++;
 
                 if (userGuess == randomNumber) {
+                    System.out.println("===============================================");
                     System.out.println("Congratulations! You guessed the correct number.");
-                    
+                    System.out.println("===============================================");
+
                     // Higher score for fewer attempts
                     score += MAX_ATTEMPTS - attempts + 1;
                     guessedCorrectly = true;
                 } else if (userGuess < randomNumber) {
-                    System.out.println("\nToo low! Try again.");
+                    System.out.println("Too low! Try again.\n");
                 } else {
-                    System.out.println("\nToo high! Try again.");
+                    System.out.println("Too high! Try again.\n");
                 }
             }
 
             if (!guessedCorrectly) {
-                System.out.println("\nSorry, you've used all your attempts. The correct number was " + randomNumber + ".");
+                System.out.println(
+                        "\nSorry, you've used all your attempts. The correct number was " + randomNumber + ".");
             }
 
             // Display Score
-            System.out.println("\nYour score: " + score);
+            System.out.println("\n-----------------------------------------------");
+            System.out.println("             Your score: " + score);
+            System.out.println("-----------------------------------------------");
 
             System.out.print("\nDo you want to play again? (yes/no): ");
             String response = scanner.next();
@@ -59,7 +70,9 @@ public class NumberGame {
             playAgain = response.equalsIgnoreCase("yes");
         }
 
-        System.out.println("\nThank you for playing! Your final score is " + score + ".");
+        System.out.println("\n===============================================");
+        System.out.println("         Thank you for playing! Your final score is " + score + ".         ");
+        System.out.println("===============================================");
         scanner.close();
     }
 }
